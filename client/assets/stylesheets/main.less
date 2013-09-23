@@ -1,93 +1,152 @@
 @import "prefixer.less";
 
-/* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 40px;
+  background: #b2dfda;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.getting-started,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+nav.navbar {
+  min-height: 40px;
+  height: 40px;
+  background-color: #333;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
+nav.navbar.visible-xs {
+  background: #333 url(../images/parrot.png) no-repeat center center;
+  background-size: 24px 24px;
+}
 
-  img {
-    height: 40px;
+.navbar-nav {
+  float: left;
+  margin: 0;
+
+  li {
+    float: left;
   }
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
+.nav > li > a {
+  padding: 0 15px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 40px;
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Welcome message and getting started button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+  .glyphicon {
+    top: 2px;
+    font-size: 18px;
+    margin-right: 6px;
   }
 }
 
-.getting-started {
-  h1 {
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-  line-height: 1.7;
+li.active .glyphicon {
+  color: #72cbf8;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.logo {
+  height: 24px;
+  margin-top: 8px;
+}
 
-  .getting-started {
-    h1 {
-      margin-top: 0;
+button.btn-compose {
+  margin: 6px 16px 6px 10px;
+  padding: 0 8px 5px 10px;
+  font-size: 20px;
+  line-height: 20px;
+  color: white;
+  border: none;
+  .box-shadow(inset 0 1px 0 rgba(255,255,255,.30));
+  background-color: #2c77ba;
+  .border-radius(4px);
+}
+
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 49px;
+  background-color: #333;
+
+  ul {
+    width: 100%;
+    margin: 0;
+
+    li {
+      width: 50%;
+      text-align: center;
+
+      a {
+        color: #999999;
+        line-height: 49px;
+
+        &:hover {
+          color: #ffffff;
+          background-color: transparent;
+        }
+      }
+
+      &.active a {
+        color: #ffffff;
+        background-color: #080808;
+      }
     }
   }
 }
 
-/* Table */
-.table > tbody > tr > td {
-  vertical-align: middle;
+#page-container {
+  background: rgba(255, 255, 255, 0.3);
+
+  aside {
+    width: 37%;
+    float: left;
+    padding: 15px 5px 15px 16px;
+
+    .card {
+      height: 156px;
+      background: #f9f9f9;
+      .border-radius(5px);
+      border: 1px solid #ccc;
+    }
+  }
+
+  #content-area {
+    width: 63%;
+    float: left;
+    padding: 15px 16px 15px 8px;
+
+    .tweet-list-view {
+      height: 700px;
+      background: white;
+      .border-radius(5px);
+      border: 1px solid #ccc;
+    }
+  }
 }
 
-.table > thead > tr > th {
-  border-bottom: none;
+// Phone
+@media (max-width: 767px) {
+
+  #page-container {
+    padding: 0;
+
+    aside {
+      display: none;
+    }
+
+    #content-area {
+      width: 100%;
+      padding: 0;
+
+      .tweet-list-view {
+        .border-radius(0);
+      }
+    }
+  }
+}
+
+// Tablet or Desktop
+@media (min-width: 768px) {
+  .container {
+    max-width: 870px;
+    padding: 0;
+  }
 }
