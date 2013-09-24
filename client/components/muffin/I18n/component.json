@@ -1,7 +1,7 @@
 {
   "name": "I18n",
   "version": "0.1.0",
-  "description": "Localization support for muffin apps",
+  "description": "Localization support for Muffin apps",
   "dependencies": {},
   "development": {},
   "scripts": [
