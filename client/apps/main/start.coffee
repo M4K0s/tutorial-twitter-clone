@@ -3,6 +3,8 @@ I18n = require 'muffin/I18n'
 
 start = ->
   # Set default locale
+  I18n.defaultLocale = 'en'
+  I18n.supportedLocales = ['en']
   locale = I18n.getBrowserLocale()
   I18n.setLocale locale, ->
     window.apps = {}

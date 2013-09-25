@@ -1,8 +1,4 @@
 {
-  "defaultLocale": "en",
-  "supportedLocales": [
-    "en"
-  ],
   "aliases": {
     "apps": "javascripts/apps"
   },
@@ -49,13 +45,11 @@
   "development": {
     "baseURL": "/api/v1",
     "assetHost": "/",
-    "logLevel": "DEBUG",
-    "cacheBuster": true
+    "logLevel": "DEBUG"
   },
   "production": {
     "baseURL": "/api/v1",
     "assetHost": "/",
-    "logLevel": "ERROR",
-    "cacheBuster": true
+    "logLevel": "ERROR"
   }
 }
