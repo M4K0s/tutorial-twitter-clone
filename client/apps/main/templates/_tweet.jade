@@ -1,0 +1,10 @@
+.tweet
+  .tweet-content
+    .tweet-header
+      a(href="#")
+        img.avatar(src="images/default-avatar.jpg")
+        strong.tweet-author-full-name Yaogang Lian
+        .tweet-author-username @ylian
+    p.tweet-text <%- tweet.text %>
+    .tweet-footer
+      .tweet-created-at <%- (new Date(tweet.created_at)).toLocaleString() %>

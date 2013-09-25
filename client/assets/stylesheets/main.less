@@ -1,5 +1,11 @@
 @import "prefixer.less";
 
+@black: #000;
+@lightblack: #333;
+@gray: #999;
+@white: #fff;
+@lightgray: #AAA;
+
 body {
   margin-top: 40px;
   background: #b2dfda;
@@ -49,7 +55,7 @@ li.active .glyphicon {
 
 button.btn-compose {
   margin: 6px 16px 6px 10px;
-  padding: 0 8px 5px 10px;
+  padding: 2px 8px 3px 10px;
   font-size: 20px;
   line-height: 20px;
   color: white;
@@ -121,6 +127,70 @@ button.btn-compose {
     }
   }
 }
+
+// Tweets
+.tweets-header {
+  padding: 12px;
+  border-bottom: 1px solid #e8e8e8;
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.tweet {
+  position: relative;
+  min-height: 75px;
+  padding: 9px 12px 9px;
+  border-bottom: 1px solid #e8e8e8;
+
+  .tweet-content {
+    margin-left: 58px;
+
+    .tweet-header {
+      .tweet-author-full-name {
+        color: @lightblack;
+      }
+
+      .tweet-author-username {
+        display: inline;
+        color: @lightgray;
+      }
+    }
+
+    .tweet-text {
+      margin: 0.6em 0 0.6em 0;
+      word-wrap: break-word;
+    }
+
+    .tweet-footer {
+      overflow: hidden;
+      color: @gray;
+      font-size: 12px;
+
+      .tweet-created-at {
+        color: @gray;
+      }
+    }
+  }
+}
+
+.avatar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 48px;
+  height: 48px;
+  .border-radius(5px);
+}
+
+.size32 {
+  width: 32px;
+  height: 32px;
+}
+
 
 // Phone
 @media (max-width: 767px) {
