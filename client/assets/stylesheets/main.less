@@ -191,6 +191,58 @@ button.btn-compose {
   height: 32px;
 }
 
+// Compose View
+.compose-view-container {
+  .border-radius(6px);
+  background: #f8f8f8;
+
+  .compose-header {
+    position: relative;
+    padding: 8px 0;
+    background: #EFEFEF;
+    border-bottom: 1px solid #ddd;
+    .border-radius(6px 6px 0 0);
+
+    h3 {
+      width: 75%;
+      margin: 0 auto;
+      text-align: center;
+      color: #555;
+      font-size: 14px;
+      font-weight: bold;
+      text-shadow: 0 1px 0 #fff;
+    }
+
+    .close {
+      position: absolute;
+      right: 10px;
+      top: 4px;
+    }
+  }
+
+  textarea {
+    width: 500px;
+    height: 100px;
+    margin: 18px 16px 6px 16px;
+    border: 1px solid #ccc;
+    .border-radius(3px);
+  }
+
+  .compose-info {
+    text-align: right;
+    padding: 0 4px 8px;
+    margin-right: 10px;
+
+    .compose-character-count {
+      margin-right: 6px;
+      color: @gray;
+      &.invalid {
+        color: #b83535;
+      }
+    }
+  }
+}
+
 
 // Phone
 @media (max-width: 767px) {
@@ -210,6 +262,11 @@ button.btn-compose {
         .border-radius(0);
       }
     }
+  }
+
+  .compose-view-container textarea {
+    width: 260px;
+    height: 80px;
   }
 }
 

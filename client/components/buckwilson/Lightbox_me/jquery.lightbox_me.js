@@ -28,7 +28,7 @@
                 $overlay = $(),
                 $self = $(this),
                 $iframe = $('<iframe id="foo" style="z-index: ' + (opts.zIndex + 1) + ';border: none; margin: 0; padding: 0; position: absolute; width: 100%; height: 100%; top: 0; left: 0; filter: mask();"/>'),
-                ie6 = ($.browser.msie && $.browser.version < 7);
+                ie6 = false;
 
             if (opts.showOverlay) {
                 //check if there's an existing overlay, if so, make subequent ones clear
@@ -93,9 +93,9 @@
             $(window).resize(setOverlayHeight)
                      .resize(setSelfPosition)
                      .scroll(setSelfPosition);
-                     
+
             $(window).bind('keyup.lightbox_me', observeKeyPress);
-                     
+
             if (opts.closeClick) {
                 $overlay.click(function(e) { closeLightbox(); e.preventDefault; });
             }
@@ -105,7 +105,7 @@
             $self.bind('close', closeLightbox);
             $self.bind('reposition', setSelfPosition);
 
-            
+
 
             /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
               -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -130,7 +130,7 @@
                 }
 
                 $iframe.remove();
-                
+
 				// clean up events.
                 $self.undelegate(opts.closeSelector, "click");
 
@@ -157,7 +157,7 @@
             function setOverlayHeight() {
                 if ($(window).height() < $(document).height()) {
                     $overlay.css({height: $(document).height() + 'px'});
-                     $iframe.css({height: $(document).height() + 'px'}); 
+                     $iframe.css({height: $(document).height() + 'px'});
                 } else {
                     $overlay.css({height: '100%'});
                     if (ie6) {
