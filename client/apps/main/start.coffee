@@ -19,8 +19,16 @@ start = ->
     window.app = apps.main = new MainApp()
     apps.main.initialize()
 
-    # Start dispatching routes
+    # Create auth app
+    AuthApp = require '../auth/app'
+    apps.auth = new AuthApp()
+    apps.auth.initialize()
+
+    # Create routers
     apps.main.createRouter()
+    apps.auth.createRouter()
+
+    # Start dispatching routes
     Backbone.history.start()
 
 module.exports = start
