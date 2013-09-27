@@ -109,7 +109,6 @@ button.btn-compose {
     padding: 15px 5px 15px 16px;
 
     .card {
-      height: 156px;
       background: #f9f9f9;
       .border-radius(5px);
       border: 1px solid #ccc;
@@ -121,7 +120,7 @@ button.btn-compose {
     float: left;
     padding: 15px 16px 15px 8px;
 
-    .tweet-list-view {
+    .tweet-list-view, .list-view {
       background: white;
       .border-radius(5px);
       border: 1px solid #ccc;
@@ -278,6 +277,88 @@ button.btn-compose {
   }
 }
 
+// Profile page
+.card.profile-nav {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 14px;
+      vertical-align: middle;
+      height: 44px;
+      background: #F9F9F9;
+      border-bottom: 1px solid #ccc;
+
+      a, .glyphicon {
+        color: @gray;
+      }
+
+      &:first-child {
+        .border-radius(5px 5px 0 0);
+      }
+
+      &:last-child {
+        .border-radius(0 0 5px 5px);
+        border-bottom: none;
+      }
+
+      &.active {
+        background: white;
+
+        a, .glyphicon {
+          font-weight: bold;
+          color: #444;
+        }
+      }
+    }
+  }
+}
+
+// User
+.users-header {
+  padding: 12px;
+  border-bottom: 1px solid #e8e8e8;
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.user {
+  position: relative;
+  min-height: 54px;
+  padding: 9px 12px 9px;
+  border-bottom: 1px solid #e8e8e8;
+
+  .user-content {
+    margin-left: 64px;
+    margin-top: 5px;
+
+    .user-header {
+      .user-full-name {
+        color: @lightblack;
+      }
+      .user-username {
+        color: @lightgray;
+        margin-top: 6px;
+      }
+    }
+
+    .user-actions {
+      position: absolute;
+      top: 21px;
+      right: 12px;
+      a {
+        color: purple;
+      }
+    }
+  }
+}
+
 // Phone
 @media (max-width: 767px) {
 
@@ -292,7 +373,7 @@ button.btn-compose {
       width: 100%;
       padding: 0;
 
-      .tweet-list-view {
+      .tweet-list-view, .list-view {
         .border-radius(0);
       }
     }
