@@ -15,13 +15,24 @@ class App
 
   initialize: ->
     # Create logger
-    window.logging = new Logger(logLevel='<?- settings.logLevel ?>')
+    window.logging = new Logger(logLevel = '<?- settings.logLevel ?>')
 
     # Alias "_id" to "id" globally to work with MongoDB
     Backbone.Model.prototype.idAttribute = "_id";
 
-    # Cancel the default actions for links with href '#'
-    $(document).on 'click', "a[href$='#']", @cancelAction
+    # Cancel the default actions for links
+    $(document).on 'click', 'a', (e) ->
+      $a = $(e.currentTarget)
+      href = $a.attr('href')
+      if $a.attr('target')
+        true
+      else if /#$/.test(href)
+        e.stopPropagation()
+        e.preventDefault()
+        false
+      else
+        e.preventDefault()
+        window.location.href = href
 
     # Ajax setup
     $.ajaxSetup
@@ -29,11 +40,5 @@ class App
         "X-XSRF-Header": "X" # Prevent CSRF attacks
         "cache-control": "no-cache" # Prevent iOS6 from caching AJAX POST requests
       cache: false # Disable JSON caching on IE
-
-  # Cancel default event handling
-  cancelAction: (e) ->
-    e.stopPropagation()
-    e.preventDefault()
-    false
 
 module.exports = App
