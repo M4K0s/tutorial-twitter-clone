@@ -28,7 +28,10 @@ start = ->
     apps.main.createRouter()
     apps.auth.createRouter()
 
-    # Start dispatching routes
-    Backbone.history.start()
+    # Ignore initial route. Let AuthApp redirect.
+    Backbone.history.start {silent: true}
+
+    # Get session info and redirect.
+    apps.auth.getSession()
 
 module.exports = start

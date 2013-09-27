@@ -5,6 +5,7 @@ mongoose = require 'mongoose'
 http = require 'http'
 sysPath = require 'path'
 io = require 'socket.io'
+passport = require 'passport'
 settings = require './config'
 
 # Create express app
@@ -32,6 +33,8 @@ app.configure ->
   app.use express.bodyParser()
   app.use express.cookieParser()
   app.use express.session({secret: settings.cookie_secret, store: new MongoStore({url: app.get('db uri')})})
+  app.use passport.initialize()
+  app.use passport.session()
   app.use app.router
 
 app.configure 'development', ->
@@ -48,6 +51,7 @@ mongoose.connect app.get('db uri')
 
 # Create routers
 app.namespace '/api/v1', ->
+  require('./apps/auth/router')(app)
   require('./apps/main/router')(app)
 
 # Start HTTP server
