@@ -12,8 +12,8 @@ passport.deserializeUser (id, done) ->
 
 # Use Google strategy
 passport.use(new GoogleStrategy {
-  returnURL: 'http://192.168.0.17:4000/api/v1/verify'
-  realm: 'http://192.168.0.17:4000/'
+  returnURL: 'http://localhost:4000/api/v1/verify'
+  realm: 'http://localhost:4000/'
 }, (identifier, profile, done) ->
   name = profile.displayName
   email = profile.emails[0].value

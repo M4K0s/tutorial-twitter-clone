@@ -28,6 +28,7 @@ app.configure ->
   app.use express.favicon()
   app.use express.logger('dev')
   app.use express.compress()
+  express.static.mime.define({'text/cache-manifest': ['appcache']})
   app.use express.static(sysPath.join(__dirname, './public'))
   app.use express.methodOverride()
   app.use express.bodyParser()

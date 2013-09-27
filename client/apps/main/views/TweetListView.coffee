@@ -1,5 +1,4 @@
 Backbone = require 'Backbone'
-TweetList = require '../models/TweetList'
 
 class TweetListView extends Backbone.View
 
@@ -12,20 +11,19 @@ class TweetListView extends Backbone.View
     @$el.html @template()
 
     # Set up data structures backing the view
-    @tweets = new TweetList()
-    @tweets.on 'reset', @render
-    @tweets.on 'add', @addItem
-    @tweets.on 'remove', @removeItem
-    @tweets.fetch {reset: true}
+    @collection.on 'reset', @render
+    @collection.on 'add', @addItem
+    @collection.on 'remove', @removeItem
+    @collection.fetch {reset: true}
 
   addItem: (tweet) =>
     $list = @$('.tweets')
-    $list.prepend @tweetTemplate({tweet: tweet.toJSON()})
+    $list.prepend @tweetTemplate({tweet: tweet.toJSON(), creator: tweet.creator.toJSON()})
 
   render: =>
     $list = @$('.tweets').empty()
-    @tweets.each (tweet) =>
-      $list.append @tweetTemplate({tweet: tweet.toJSON()})
+    @collection.each (tweet) =>
+      $list.append @tweetTemplate({tweet: tweet.toJSON(), creator: tweet.creator.toJSON()})
     @
 
 module.exports = TweetListView

@@ -43,6 +43,7 @@ class ComposeView extends Backbone.View
   sendTweet: (e) ->
     text = @$('.compose-text').val()
     tweet = new Tweet
+    tweet.creator = app.currentUser
     tweet.save {text},
       success: (model, response) =>
         @$('.compose-text').val('').trigger('keyup')
