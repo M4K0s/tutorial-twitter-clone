@@ -12,15 +12,18 @@ passport.deserializeUser (id, done) ->
 
 # Use Google strategy
 passport.use(new GoogleStrategy {
-  returnURL: 'http://localhost:4000/api/v1/verify'
-  realm: 'http://localhost:4000/'
+  returnURL: 'http://192.168.0.17:4000/api/v1/verify'
+  realm: 'http://192.168.0.17:4000/'
 }, (identifier, profile, done) ->
-  user = User.findOne {openId: identifier}, (err, user) ->
+  name = profile.displayName
+  email = profile.emails[0].value
+
+  user = User.findOne {email}, (err, user) ->
     if user
-      user.name = profile.displayName
-      user.email = profile.emails[0].value
+      user.name = name
+      user.email = email
     else
-      user = new User {openId: identifier, name: profile.displayName, email: profile.emails[0].value}
+      user = new User {openId: identifier, name, email}
     user.save (err) ->
       done(err, user)
 )
