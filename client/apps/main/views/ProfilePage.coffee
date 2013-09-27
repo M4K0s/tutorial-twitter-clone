@@ -4,6 +4,7 @@ TweetListView = require './TweetListView'
 FollowingList = require '../models/FollowingList'
 FollowerList = require '../models/FollowerList'
 UserListView = require './UserListView'
+WhoToFollowCard = require './WhoToFollowCard'
 
 class ProfilePage extends Backbone.View
 
@@ -14,6 +15,10 @@ class ProfilePage extends Backbone.View
 
   initialize: ->
     @$el.html @template()
+
+    # Show "Who to Follow" card in the sidebar
+    @whoToFollowCard = new WhoToFollowCard()
+    @$('aside').append @whoToFollowCard.render().el
 
   render: => @
 

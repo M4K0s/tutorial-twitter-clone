@@ -109,6 +109,7 @@ button.btn-compose {
     padding: 15px 5px 15px 16px;
 
     .card {
+      margin: 1em 0;
       background: #f9f9f9;
       .border-radius(5px);
       border: 1px solid #ccc;
@@ -355,6 +356,44 @@ button.btn-compose {
       a {
         color: purple;
       }
+    }
+  }
+}
+
+// Who to follow
+.recommended-header {
+  padding: 0 1em;
+  border-bottom: 1px solid #ccc;
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+}
+
+.user-to-follow {
+  position: relative;
+  min-height: 75px;
+  padding: 9px 12px 9px;
+  border-bottom: 1px solid #ccc;
+
+  .user-to-follow-content {
+    margin-left: 58px;
+
+    .user-to-follow-header {
+      float: left;
+
+      .user-full-name {
+        color: @lightblack;
+      }
+      .user-username {
+        color: @lightgray;
+      }
+    }
+
+    .user-to-follow-actions {
+      margin-top: 8px;
     }
   }
 }
