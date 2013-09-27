@@ -28,4 +28,9 @@ class LayoutView extends Backbone.View
       centered: true
       destroyOnClose: true
 
+  selectTab: (tab) ->
+    $tab = @$(".nav.navbar-nav li[data-tab='#{tab}']")
+    $tab.siblings().removeClass('active')
+    $tab.addClass('active')
+
 module.exports = LayoutView

@@ -1,11 +1,11 @@
 nav.navbar.navbar-inverse.navbar-fixed-top.hidden-xs
   .container
     ul.nav.navbar-nav
-      li.active
+      li.active(data-tab='home')
         a(href='#home')
           span.glyphicon.glyphicon-home
           | Home
-      li
+      li(data-tab='me')
         a(href='#me')
           span.glyphicon.glyphicon-user
           | Me
@@ -30,11 +30,11 @@ nav.navbar.navbar-inverse.navbar-fixed-top.visible-xs
 
 .tabbar.visible-xs
   ul.nav.navbar-nav
-    li.active
+    li.active(data-tab='home')
       a(href='#home')
         span.glyphicon.glyphicon-home
         | Home
-    li
+    li(data-tab='me')
       a(href='#me')
         span.glyphicon.glyphicon-user
         | Me
