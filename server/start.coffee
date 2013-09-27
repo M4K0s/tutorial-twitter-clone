@@ -32,7 +32,10 @@ app.configure ->
   app.use express.methodOverride()
   app.use express.bodyParser()
   app.use express.cookieParser()
-  app.use express.session({secret: settings.cookie_secret, store: new MongoStore({url: app.get('db uri')})})
+  app.use express.session
+    secret: settings.cookie_secret
+    cookie: {maxAge: 60000}
+    store: new MongoStore({url: app.get('db uri')})
   app.use passport.initialize()
   app.use passport.session()
   app.use app.router
