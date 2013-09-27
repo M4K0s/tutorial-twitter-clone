@@ -10,11 +10,15 @@ class LayoutView extends Backbone.View
     'click .btn-compose': 'showComposeView'
 
   initialize: ->
-    @$el.html @template()
+    @rendered = false
 
-  render: => @
+  render: =>
+    @$el.html @template()
+    @rendered = true
+    @
 
   setView: (v) ->
+    @render() unless @rendered
     @$('#page-container').html v.render().el
 
   showComposeView: ->
