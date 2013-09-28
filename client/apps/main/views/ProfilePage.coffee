@@ -20,7 +20,9 @@ class ProfilePage extends Backbone.View
     @whoToFollowCard = new WhoToFollowCard()
     @$('aside').append @whoToFollowCard.render().el
 
-  render: => @
+  render: =>
+    @$('.profile-nav li:first-child').click()
+    @
 
   selectTab: (e) ->
     $tab = $(e.currentTarget)

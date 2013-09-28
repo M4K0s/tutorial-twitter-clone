@@ -11,7 +11,6 @@ RecommendedController =
         .select('email name username profileImageUrl')
         .limit(20)
         .exec (err, users) ->
-          console.log err
           if err
             res.send(404)
           else
