@@ -1,4 +1,4 @@
-User = require '../models/User'
+User = require '../../auth/models/User'
 
 FollowingController =
   # GET /users/:id/following
@@ -19,7 +19,7 @@ FollowingController =
         User.findById req.params.fid, (err, friend) ->
           if friend
             user.following ?= []
-            user.following.push friend
+            user.following.push friend._id
             user.followingCount += 1
 
             user.save (err) ->

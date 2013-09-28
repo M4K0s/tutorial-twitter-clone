@@ -36,8 +36,8 @@ class WhoToFollowCard extends Backbone.View
       data: JSON.stringify({})
       dataType: 'json'
       success: (data, status, xhr) =>
-        logging.info "did follow user #{userId}"
+        logging.info "Did follow user #{userId}"
       error: (xhr, status, error) =>
-        logging.error "failed to follow user #{userId}"
+        logging.error "Failed to follow user #{userId}"
 
 module.exports = WhoToFollowCard

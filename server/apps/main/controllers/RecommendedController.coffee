@@ -1,4 +1,4 @@
-User = require '../models/User'
+User = require '../../auth/models/User'
 
 RecommendedController =
   # GET /users/:id/recommended

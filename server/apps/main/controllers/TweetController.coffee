@@ -1,5 +1,5 @@
 Tweet = require '../models/Tweet'
-User = require '../models/User'
+User = require '../../auth/models/User'
 
 TweetController =
   # GET /users/:id/tweets
