@@ -10,6 +10,9 @@ class App
   initialize: ->
     @session = new Session
 
+    # Set a global error handler
+    $(document).on 'ajaxError', @globalErrorHandler
+
   createRouter: ->
     @router = new Router
 
@@ -35,5 +38,11 @@ class App
   # Clear the session
   clearSession: ->
     @session.clear()
+
+  # Global error handler
+  globalErrorHandler: (event, xhr, settings, thrownError) =>
+    if xhr.status is 401
+      @clearSession()
+      @redirect '#login'
 
 module.exports = App
