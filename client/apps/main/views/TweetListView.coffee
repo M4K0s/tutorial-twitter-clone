@@ -16,6 +16,10 @@ class TweetListView extends Backbone.View
     @collection.on 'remove', @removeItem
     @collection.fetch {reset: true}
 
+    # Listen to "send:tweet" event
+    @listenTo app, 'send:tweet', ->
+      @collection.fetch()
+
   addItem: (tweet) =>
     $list = @$('.tweets')
     $list.prepend @tweetTemplate({tweet: tweet.toJSON(), creator: tweet.creator.toJSON()})
