@@ -28,16 +28,14 @@ class WhoToFollowCard extends Backbone.View
   follow: (e) ->
     $li = $(e.target).closest('.user-to-follow')
     userId = $li.attr('data-id')
-
-    $.ajax
-      type: 'POST'
-      url: "<?= settings.baseURL ?>/users/#{app.currentUser.id}/follow/#{userId}"
-      contentType: 'application/json'
-      data: JSON.stringify({})
-      dataType: 'json'
-      success: (data, status, xhr) =>
-        logging.info "Did follow user #{userId}"
-      error: (xhr, status, error) =>
-        logging.error "Failed to follow user #{userId}"
+    app.currentUser.follow userId, (err) =>
+      if err
+        console.log err
+      else
+        index = $li.index()
+        model = @collection.at(index)
+        @collection.remove model
+        $li.remove()
+        app.trigger 'follow:user'
 
 module.exports = WhoToFollowCard

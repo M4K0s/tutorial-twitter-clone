@@ -7,7 +7,7 @@
         .user-username @<%- user.username || '' %>
     .user-actions.pull-right
       <% if (type == 'following') { %>
-      button.btn.btn-info Following
+      button.btn.btn-info.btn-unfollow Following
       <% } else if (type == 'followers') { %>
-      button.btn.btn-default Follow
+      button.btn.btn-default.btn-follow Follow
       <% } %>

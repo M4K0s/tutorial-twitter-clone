@@ -15,7 +15,7 @@ router = (app) ->
     # Following
     app.get '/following', app.authenticate, FollowingController.index
     app.post '/follow/:fid', app.authenticate, FollowingController.create
-    app.delete '/unfollow/:fid', app.authenticate, FollowingController.destroy
+    app.post '/unfollow/:fid', app.authenticate, FollowingController.destroy
 
     # Followers
     app.get '/followers', app.authenticate, FollowerController.index

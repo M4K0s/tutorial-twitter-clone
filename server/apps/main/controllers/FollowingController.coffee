@@ -19,7 +19,7 @@ FollowingController =
         User.findById req.params.fid, (err, friend) ->
           if friend
             user.following ?= []
-            user.following.push friend._id
+            user.following.push friend
             user.followingCount += 1
 
             user.save (err) ->
@@ -37,13 +37,26 @@ FollowingController =
       else
         res.send(404)
 
-  # DELETE /users/:id/unfollow/:fid
+  # POST /users/:id/unfollow/:fid
   destroy: (req, res) ->
     User.findById req.params.id, (err, user) ->
       if user
-        index = user.following.indexOf(req.params.fid)
-        if index isnt -1 then delete user.following[index]
-        res.send({})
+        User.findById req.params.fid, (err, friend) ->
+          if friend
+            user.following.remove(friend)
+            user.followingCount -= 1
+
+            user.save (err) ->
+              if err
+                res.send(err, 422)
+              else
+                friend.followers.remove(user)
+                friend.followerCount -= 1
+
+                friend.save (err) ->
+                  if err then res.send(err, 422) else res.send({})
+          else
+            res.send(404)
       else
         res.send(404)
 
