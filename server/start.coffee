@@ -35,7 +35,7 @@ app.configure ->
   app.use express.cookieParser()
   app.use express.session
     secret: settings.cookie_secret
-    cookie: {maxAge: 600000}
+    cookie: {expires: false}
     store: new MongoStore({url: app.get('db uri')})
   app.use passport.initialize()
   app.use passport.session()
