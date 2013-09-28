@@ -1,11 +1,15 @@
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
 ObjectId = Schema.ObjectId
+crypto = require 'crypto'
 
 setEmail = (email) ->
   # Derive username from email
-  @username = email.split('@')[0].toLowerCase()
-  email.toLowerCase()
+  email = email.toLowerCase()
+  @username = email.split('@')[0]
+  hash = crypto.createHash('md5').update(email).digest('hex')
+  @profileImageUrl = 'http://www.gravatar.com/avatar/' + hash
+  email
 
 UserSchema = new Schema
   email: {type: String, required: true, unique: true, set: setEmail}

@@ -6,7 +6,7 @@ TweetController =
   index: (req, res) ->
     Tweet
     .find({creator: req.params.id})
-    .populate('creator', 'email name username')
+    .populate('creator', 'email name username profileImageUrl')
     .exec (err, tweets) ->
       if err
         res.send(404)
@@ -19,7 +19,7 @@ TweetController =
       if user
         Tweet
         .find({$or: [{creator: req.params.id}, {creator: {$in: (user.following ? [])}}]})
-        .populate('creator', 'email name username')
+        .populate('creator', 'email name username profileImageUrl')
         .exec (err, tweets) ->
           if err
             res.send(404)
