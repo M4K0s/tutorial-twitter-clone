@@ -107,13 +107,6 @@ button.btn-compose {
     width: 37%;
     float: left;
     padding: 15px 5px 15px 16px;
-
-    .card {
-      margin: 0 0 1em 0;
-      background: #f9f9f9;
-      .border-radius(5px);
-      border: 1px solid #ccc;
-    }
   }
 
   #content-area {
@@ -127,6 +120,13 @@ button.btn-compose {
       border: 1px solid #ccc;
     }
   }
+}
+
+.card {
+  margin: 0 0 1em 0;
+  background: #f9f9f9;
+  .border-radius(5px);
+  border: 1px solid #ccc;
 }
 
 // Tweets
@@ -398,6 +398,106 @@ button.btn-compose {
   }
 }
 
+// Profile summary view
+.profile-view {
+  margin: 0 0 1em 0;
+  background: #f9f9f9;
+  .border-radius(5px);
+
+  .profile-container {
+    background: #333;
+    .border-radius(5px 5px 0 0);
+
+    .profile {
+      padding: 30px 0 50px 0;
+      color: white;
+      text-align: center;
+
+      .profile-avatar {
+        display: block;
+        margin: 0 auto;
+        width: 80px;
+        height: 80px;
+        border: 5px solid white;
+        .border-radius(5px);
+      }
+
+      .profile-full-name {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.8;
+      }
+
+      .profile-username {
+        font-size: 18px;
+        line-height: 0.8;
+      }
+    }
+  }
+}
+
+// Profile summary card
+.account-summary-container {
+  padding: 12px;
+
+  .account-summary {
+    position: relative;
+    padding-bottom: 0;
+
+    .account-summary-avatar {
+      top: 0;
+      left: 0;
+    }
+
+    .account-summary-content {
+      margin-left: 42px;
+    }
+
+    .account-summary-full-name {
+      display: block;
+      font-size: 14px;
+    }
+
+    .account-summary-metadata {
+      font-size: 11px;
+      color: @gray;
+    }
+  }
+}
+
+.stats {
+  margin: 0;
+  padding: 0 12px;
+  overflow: hidden;
+  list-style: none;
+  border: solid #e8e8e8;
+  border-width: 1px 0 1px 0;
+  .border-radius(0 0 5px 5px);
+
+  > li {
+    float: left;
+    padding: 7px 12px;
+    font-size: 10px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: @gray;
+    border: solid #e8e8e8;
+    border-width: 0 1px 0 0;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      border-right: 0;
+    }
+    strong {
+      display: block;
+      font-size: 14px;
+      color: @lightblack;
+    }
+  }
+}
+
 // Phone
 @media (max-width: 767px) {
 
@@ -421,6 +521,14 @@ button.btn-compose {
   .compose-view-container textarea {
     width: 260px;
     height: 80px;
+  }
+
+  .profile-view {
+    .border-radius(0);
+
+    .profile-container {
+      .border-radius(0);
+    }
   }
 }
 

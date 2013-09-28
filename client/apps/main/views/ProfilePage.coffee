@@ -5,6 +5,7 @@ FollowingList = require '../models/FollowingList'
 FollowerList = require '../models/FollowerList'
 UserListView = require './UserListView'
 WhoToFollowCard = require './WhoToFollowCard'
+ProfileSummaryView = require './ProfileSummaryView'
 
 class ProfilePage extends Backbone.View
 
@@ -19,6 +20,10 @@ class ProfilePage extends Backbone.View
     # Show "Who to Follow" card in the sidebar
     @whoToFollowCard = new WhoToFollowCard()
     @$('aside').append @whoToFollowCard.render().el
+
+    # Add profile summary view
+    @profileSummaryView = new ProfileSummaryView {model: app.currentUser}
+    @$('#content-area').prepend @profileSummaryView.render().el
 
   render: =>
     @$('.profile-nav li:first-child').click()

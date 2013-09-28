@@ -1,7 +1,8 @@
 Backbone = require 'Backbone'
 TweetList = require '../models/TweetList'
 TweetListView = require './TweetListView'
-WhoToFollowCard = require '../views/WhoToFollowCard'
+WhoToFollowCard = require './WhoToFollowCard'
+ProfileSummaryCard = require './ProfileSummaryCard'
 
 class IndexPage extends Backbone.View
 
@@ -11,6 +12,10 @@ class IndexPage extends Backbone.View
 
   initialize: ->
     @$el.html @template()
+
+    # Show profile summary card in the sidebar
+    @profileSummaryCard = new ProfileSummaryCard {model: app.currentUser}
+    @$('aside').append @profileSummaryCard.render().el
 
     # Show "Who to Follow" card in the sidebar
     @whoToFollowCard = new WhoToFollowCard()
