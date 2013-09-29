@@ -8,6 +8,7 @@ class LayoutView extends Backbone.View
 
   events:
     'click .btn-compose': 'showComposeView'
+    'click .btn-logout': 'logout'
 
   initialize: ->
     @rendered = false
@@ -32,5 +33,8 @@ class LayoutView extends Backbone.View
     $tab = @$(".nav.navbar-nav li[data-tab='#{tab}']")
     $tab.siblings().removeClass('active')
     $tab.addClass('active')
+
+  logout: (e) ->
+    apps.auth.logout()
 
 module.exports = LayoutView

@@ -52,4 +52,8 @@ router = (app) ->
   app.get '/session', app.authenticate, (req, res) ->
     res.send {user: req.user}
 
+  app.delete '/session', (req, res) ->
+    req.logout()
+    res.send({})
+
 module.exports = router

@@ -39,6 +39,18 @@ class App
   clearSession: ->
     @session.clear()
 
+  # Logout
+  logout: ->
+    @session.destroy
+      success: (model, response) =>
+        @clearSession()
+
+        # Reload the app to rectify any memory leaks or caching issues.
+        @router.navigate ''
+        window.location.reload()
+      error: (model, xhr) ->
+        logging.error "Error signing out"
+
   # Global error handler
   globalErrorHandler: (event, xhr, settings, thrownError) =>
     if xhr.status is 401
