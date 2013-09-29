@@ -10,7 +10,7 @@
     "url": ""
   },
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "coffee-script": "1.x",
@@ -27,5 +27,9 @@
     "mocha": "~1.1.0",
     "chai": "~1.2.0",
     "docco": "~0.3.0"
+  },
+  "subdomain": "ylian-parrot",
+  "engines": {
+    "node": "0.10.x"
   }
 }
