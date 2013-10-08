@@ -2,7 +2,7 @@ Backbone = require 'Backbone'
 
 class LoginPage extends Backbone.View
 
-  template: _.tpl(require '../templates/LoginPage.html')
+  template: _.template(require '../templates/LoginPage.html')
 
   events: {}
 

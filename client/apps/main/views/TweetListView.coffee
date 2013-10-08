@@ -2,8 +2,8 @@ Backbone = require 'Backbone'
 
 class TweetListView extends Backbone.View
 
-  template: _.tpl(require '../templates/TweetListView.html')
-  tweetTemplate: _.tpl(require '../templates/_tweet.html')
+  template: _.template(require '../templates/TweetListView.html')
+  tweetTemplate: _.template(require '../templates/_tweet.html')
 
   events: {}
 

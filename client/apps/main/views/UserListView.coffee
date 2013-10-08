@@ -2,8 +2,8 @@ Backbone = require 'Backbone'
 
 class UserListView extends Backbone.View
 
-  template: _.tpl(require '../templates/UserListView.html')
-  userTemplate: _.tpl(require '../templates/_user.html')
+  template: _.template(require '../templates/UserListView.html')
+  userTemplate: _.template(require '../templates/_user.html')
 
   events:
     'mouseenter .btn-unfollow': 'showUnfollow'

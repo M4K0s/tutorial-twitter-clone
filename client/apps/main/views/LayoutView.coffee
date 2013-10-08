@@ -4,7 +4,7 @@ require 'buckwilson/Lightbox_me'
 
 class LayoutView extends Backbone.View
 
-  template: _.tpl(require '../templates/LayoutView.html')
+  template: _.template(require '../templates/LayoutView.html')
 
   events:
     'click .btn-compose': 'showComposeView'

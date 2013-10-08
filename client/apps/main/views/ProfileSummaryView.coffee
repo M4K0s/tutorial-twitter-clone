@@ -3,7 +3,7 @@ Backbone = require 'Backbone'
 class ProfileSummaryView extends Backbone.View
 
   className: 'profile-view'
-  template: _.tpl(require '../templates/ProfileSummaryView.html')
+  template: _.template(require '../templates/ProfileSummaryView.html')
 
   events: {}
 

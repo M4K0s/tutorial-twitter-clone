@@ -9,7 +9,7 @@ ProfileSummaryView = require './ProfileSummaryView'
 
 class ProfilePage extends Backbone.View
 
-  template: _.tpl(require '../templates/ProfilePage.html')
+  template: _.template(require '../templates/ProfilePage.html')
 
   events:
     'click .profile-nav li': 'selectTab'

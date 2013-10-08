@@ -6,7 +6,7 @@ ProfileSummaryCard = require './ProfileSummaryCard'
 
 class IndexPage extends Backbone.View
 
-  template: _.tpl(require '../templates/IndexPage.html')
+  template: _.template(require '../templates/IndexPage.html')
 
   events: {}
 

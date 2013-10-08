@@ -3,7 +3,7 @@ Tweet = require '../models/Tweet'
 
 class ComposeView extends Backbone.View
 
-  template: _.tpl(require '../templates/ComposeView.html')
+  template: _.template(require '../templates/ComposeView.html')
 
   events:
     'click .tweet-button': 'sendTweet'

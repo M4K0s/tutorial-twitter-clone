@@ -4,8 +4,8 @@ RecommendedList = require '../models/RecommendedList'
 class WhoToFollowCard extends Backbone.View
 
   className: 'card'
-  template: _.tpl(require '../templates/WhoToFollowCard.html')
-  userTemplate: _.tpl(require '../templates/_user_to_follow.html')
+  template: _.template(require '../templates/WhoToFollowCard.html')
+  userTemplate: _.template(require '../templates/_user_to_follow.html')
 
   events:
     'click .user-to-follow-actions button': 'follow'
