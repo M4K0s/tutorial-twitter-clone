@@ -13,9 +13,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "coffee-script": "1.x",
-    "express": "3.x",
-    "mongoose": "*",
+    "coffee-script": "~1.6.3",
+    "express": "~3.4.0",
+    "mongoose": "~2.9.1",
     "socket.io": "~0.9.10",
     "express-namespace": "~0.1.1",
     "underscore": "~1.4.3",
